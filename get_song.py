@@ -85,24 +85,4 @@ if __name__ == "__main__":
         s = get_song()
         print s
                         
-
-
-
-
-'''
-    def parse_page(page):
-        return re.findall(r'"(https://freemusicarchive\.org/music/download/[\d\w]+?)"', page)
-
-    def save_song(url):
-        data = get(url)
-        file_name = 'music\\' + str(random()) + '.mp3'
-        with open(file_name, 'wb') as f:
-            f.write(data)
-        return os.path.abspath(file_name)
-
-    def rand_song():
-        all_urls = parse_page(get(ALL_SONGS))
-        rand_url = all_urls[int(random()*len(all_urls))]
-        return save_song(rand_url)
-    '''
     
