@@ -1,6 +1,3 @@
-#from PIL import Image
-#import numpy as np
-#import moviepy
 from moviepy.video import fx
 from moviepy.editor import VideoFileClip, TextClip, CompositeVideoClip
 import time as t
