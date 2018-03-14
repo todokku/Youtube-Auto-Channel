@@ -28,7 +28,7 @@ from sources import full_day_sources, update_titles
 for source in full_day_sources():
     sub = subreddit(source.subreddit)
     "getting top of the day links..."
-    posts = [post for post in sub.top('day') if not post.is_sticky][:3]
+    posts = [post for post in sub.top('day') if not post.is_sticky]
     print 'downloading {0} links'.format(len(posts))
     all_media = save_media(posts, 'media')
     print "got {0} pieces of media".format(len(all_media))
