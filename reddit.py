@@ -50,12 +50,4 @@ class subreddit():
 
 if __name__ == "__main__":
     le = subreddit('dankmemes').hot()
-
-
-
-
-'''
-def _parse_links(self, content):
-return re.findall('data-url="(.+?)"', content)
-'''
                                
