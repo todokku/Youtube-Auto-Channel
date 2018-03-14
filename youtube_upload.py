@@ -40,13 +40,22 @@ def upload(video_path, desc = '', tags = []):
         tag_input = find('input.video-settings-add-tag')
         for tag in tags:
             tag_input.send_keys(str(tag) + ',')
-        find("button.save-changes-button").click()
+        save_button = find("button.save-changes-button")
+        save_button.click()
+        if tags != []: #the done button only comes up if you have tags
+            while 'Done' not in save_button.get_attribute("innerText"):
+                time.sleep(0.1)
+        save_button.click()
+        body = find('body')
+        while 'Your video was uploaded' not in body.get_attribute("innerText"):
+            time.sleep(0.1)
                 
     login()
     actual_upload()
+    browser.close()
 
 
    
 if __name__ == "__main__":
-    upload('C:\\Users\\Wakydawgster\\Documents\\Programmable Memes\\python JUNK\\autocancer youtube channel\\cancer.mp4')
+    import random; upload('C:\\Users\\Wakydawgster\\Documents\\Programmable Memes\\python JUNK\\autocancer youtube channel\\videos\\IF YOU LAUGH YOU MUST LIKE THIS VIDEO #2.mp4', 'asdf', [str(random.random()) for i in range(10)])
     

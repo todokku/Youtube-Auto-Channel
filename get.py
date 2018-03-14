@@ -1,6 +1,6 @@
 import requests
-from better_threading import thread
 
+#trys to get the url 5 times, uses a user-agent that looks like a standard browser
 def get(url, attempts = 5):
     for i in xrange(1, attempts + 1):
         try:
@@ -17,7 +17,3 @@ def get(url, attempts = 5):
             printStr = "Weird error: " + str(err)
         print "{2}, retrying ({0}/{1})".format(i, attempts, error)    
     raise Exception("Request is fricked")
-
-
-def async_get(url, attempts = 5):
-    return thread(get, (url, attempts))

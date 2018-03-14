@@ -3,15 +3,8 @@ import re
 from random import random
 import os
 from get import get as good_get
+from util import find_first
 
-
-
-def find_first(regex, string):
-    matches = re.findall(regex, string)
-    if len(matches) != 0:
-        return matches[0]
-    else:
-        return None
 
 def get(url):
     return good_get(url).content
@@ -67,9 +60,9 @@ class song:
 
 
 #a page containing every song that the fma has. Has to be format()ed for a specific genre
-ALL_SONGS = "http://freemusicarchive.org/genre/{0}/?sort=track_date_published&d=1&page=1&per_page=100000"
+ALL_SONGS = "http://freemusicarchive.org/genre/{0}/?sort=track_date_published&d=1&page=1&per_page=10000" #JUST DOING TOP 10000 SONGS BECAUSE 100000 WAS TAKING TOO LONG
 
-def get_song(genre = 'Synth_Pop'):
+def get_song(genre = 'Electronic'):
     page = get(ALL_SONGS.format(genre))
     links = re.findall(r'<span class="ptxt-track"><a href="(.+?)">', page)
     links = links[1:] #cut off first link because its just the url of the page
