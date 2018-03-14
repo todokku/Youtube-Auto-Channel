@@ -79,30 +79,3 @@ if __name__ == "__main__":
                 'https://www.reddit.com/r/funny/comments/82pdwc/the_hand_of_meow/',
                 'http://www.gfycat.com/ImpressionableWeeklyCero']
         ,'media')
-
-
-'''
-IMG_FILES = ['png', 'jpg', 'jpeg']
-def is_img(link, response):
-   return _is_format(link, response, IMG_FILES)
-
-VIDEO_FILES = ['gif', 'gifv', 'mp4', 'webm']
-def is_gif(link, response):
-    return _is_format(link, response, VIDEO_FILES)
-
-
-#saves the image links to the specified folder
-def save_imgs(links, folder):
-    _empty_folder(folder)
-    downloaded = [(l, get(l)) for l in links]
-    image_data = []
-    for d in downloaded:
-        if is_img(*d):
-            image_data.append(d[1].content)
-    img_paths = []
-    for i in image_data:
-        with open('images\\' + str(random()) + '.png', 'wb') as f:
-            f.write(i)
-            img_paths.append(os.path.abspath(f.name))
-    return img_paths
-'''
