@@ -79,4 +79,23 @@ def format_clip(clip, text=None, text_pos='bottom', fontsize = 60 , ideal_size =
 if __name__ == "__main__":
     a = format_clip("C:\\Users\\Monchy\Dropbox\\MEMES\ehren yt\\ewe.gif",text='texting texting 123 HAHAHA')
     a.write_videofile("C:\\Users\\Monchy\Dropbox\\MEMES\ehren yt\\wew.mp4")
-    
+
+
+
+
+'''
+def add_newlines(text, max_len = 30):
+    last_space = 0
+    last_break = 0
+    new_text = ''
+    for t, char in enumerate(text):
+        if char == ' ':
+            last_space = t
+        if t%max_len == 0 and t != 0: #SPECIAL CASE IF LAST_SPACE IS 0 OR THE SAME PLACE AS THE LAST \N
+            if last_space == last_break: #if there were no spaces since last newline
+                text = text[:t] + '\n' + text[t:]
+                last_break
+            else:
+                text = text[:last_space] + '\n' + text[last_space+1:]
+    return text
+'''

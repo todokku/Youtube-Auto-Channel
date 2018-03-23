@@ -13,7 +13,7 @@ def get(url, attempts = 5):
             error = "Connection error"
         except requests.exceptions.Timeout:
             error = "Timeout exception"
-        except:
-            printStr = "Weird error: " + str(err)
+        except Exception as err:
+            error = "Weird error: " + str(err)
         print "{2}, retrying ({0}/{1})".format(i, attempts, error)    
     raise Exception("Request is fricked")

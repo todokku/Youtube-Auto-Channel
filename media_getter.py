@@ -35,7 +35,7 @@ def is_img(path):
 def _get_media_data(url):
     if contains(r'^https?://(www\.)?gfycat\.com', url): #if gfycat gif, deals with http and https sites
         url = url.replace('gfycat.com', 'giant.gfycat.com').replace('www.', '') + '.mp4'
-    if contains(r'^https?://i\.imgur\.com/.+?\.gifv', url): #if imgur gif
+    if contains(r'^https?://(?:i\.)?imgur\.com/.+?\.gifv', url): #if imgur gifv
         url = url.replace('.gifv', '.mp4')
     format = _get_format(url, _IMG_FILES + _VIDEO_FILES)
     if format: #if the media is in one of the acceptable formats
@@ -50,8 +50,15 @@ def _get_media_data(url):
 
 #empties the folder at the specified file location
 def _empty_folder(folder):
-    for f in os.listdir(folder):
-        os.remove(folder + '\\' + f)
+    while 1: #added this loop because sometimes moviepy's files aren't all closed when I'm emptying the media folder and they haven't implemented a close function as far as I can tell
+        try:
+            for f in os.listdir(folder):
+                os.remove(folder + '\\' + f)
+            break
+        except WindowsError as e:
+            print "COULDN'T DELETE FILES BECAUSE: " + str(e)
+            print "Trying to end ffmpeg..."
+            os.system('taskkill /f /im ffmpeg.exe')
 
 #saves the image links to the specified folder
 def save_media(posts, folder):
@@ -72,10 +79,12 @@ def save_media(posts, folder):
 
 
 if __name__ == "__main__":
+    _empty_folder('DELPLS')
+    '''
     save_media(['https://gfycat.com/CommonEagerAnemonecrab',
                 'http://i.imgur.com/zQHVclH.gifv',
                 'https://i.imgur.com/ANB928W.gifv',
                 'https://i.imgur.com/rN5vkKj.jpg',
                 'https://www.reddit.com/r/funny/comments/82pdwc/the_hand_of_meow/',
                 'http://www.gfycat.com/ImpressionableWeeklyCero']
-        ,'media')
+        ,'media')'''

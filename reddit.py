@@ -29,6 +29,7 @@ class subreddit():
                 url = find_first(r'data-url="(.+?)" data-permalink', before_post)
             title = find_first(r'rel="(?:nofollow)?" >(.+?)</a', b)
             title = ''.join(c for c in title if ord(c) <= 127) #ELIMINATES ALL UTF-8 ENCODED NON-ASCII CHARACTERS
+            title = title.replace('&quot;', '"') #convert html encoded quotes back to normal quotes
             is_sticky = '<span class="stickied-tagline"' in b
             posts.append(post(url, title, is_sticky))
             last_post = b
@@ -49,5 +50,13 @@ class subreddit():
 
 
 if __name__ == "__main__":
-    le = subreddit('dankmemes').hot()
+    le = subreddit('woahdude').top('day')
+
+
+
+
+'''
+def _parse_links(self, content):
+return re.findall('data-url="(.+?)"', content)
+'''
                                

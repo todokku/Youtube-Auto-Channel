@@ -4,6 +4,7 @@ from random import random
 import os
 from get import get as good_get
 from util import find_first
+import time
 
 
 def get(url):
@@ -59,30 +60,66 @@ class song:
         return os.path.abspath(self._file_path)
 
 
-#a page containing every song that the fma has. Has to be format()ed for a specific genre
-ALL_SONGS = "http://freemusicarchive.org/genre/{0}/?sort=track_date_published&d=1&page=1&per_page=10000" #JUST DOING TOP 10000 SONGS BECAUSE 100000 WAS TAKING TOO LONG
+
+PER_PAGE = 10
+ALL_SONGS = "http://freemusicarchive.org/genre/{0}/?sort=track_date_published&d=1&page={1}&per_page=" + str(PER_PAGE)
+
 
 def get_song(genre = 'Electronic'):
-    page = get(ALL_SONGS.format(genre))
-    links = re.findall(r'<span class="ptxt-track"><a href="(.+?)">', page)
-    links = links[1:] #cut off first link because its just the url of the page
-    track = None
-    while track is None: 
-        try:
-            rand_url = links[int(random()*len(links))]
-            track = song(rand_url)
-        except corrupt_song_link_exception:
-            print "Song link was corrupt! Getting a new song..."
-    file_name = 'music\\' + str(random()) + '.mp3'
-    track.save(file_name)
-    return track
+    def random_page():
+        first_page = get(ALL_SONGS.format(genre, 1))
+        num_of_pages = int(find_first(r'</b> of <b>(\d+?)</b>', first_page))/PER_PAGE
+        return int(random() * num_of_pages) + 1
+    
+    def random_song():
+        songs_url = ALL_SONGS.format(genre, random_page())
+        links = []
+        while links == []:
+            page = get(songs_url)
+            links = re.findall(r'<span class="ptxt-track"><a href="(.+?)">', page)
+            links = links[1:] #cut off first link because its just the url of the page
+            if links == []:
+                print "COULDN'T GET ANY SONG LINKS PROBABLY BECAUSE I'M SPAMMING TOO HARD, sleeping for 10 secs and downloading songs page agian..."
+                time.sleep(10)
+        track = None
+        while track is None: 
+            try:
+                rand_url = links[int(random()*len(links))]
+                track = song(rand_url)
+            except corrupt_song_link_exception:
+                print "Song link was corrupt! Getting a new song..."
+        file_name = 'music\\' + str(random()) + '.mp3'
+        track.save(file_name)
+        return track
+    
+    return random_song()
 
 
 
 
 if __name__ == "__main__":
     while 1:
-        s = get_song()
+        s = get_song('dubstep')
         print s
                         
+
+
+
+
+'''
+    def parse_page(page):
+        return re.findall(r'"(https://freemusicarchive\.org/music/download/[\d\w]+?)"', page)
+
+    def save_song(url):
+        data = get(url)
+        file_name = 'music\\' + str(random()) + '.mp3'
+        with open(file_name, 'wb') as f:
+            f.write(data)
+        return os.path.abspath(file_name)
+
+    def rand_song():
+        all_urls = parse_page(get(ALL_SONGS))
+        rand_url = all_urls[int(random()*len(all_urls))]
+        return save_song(rand_url)
+    '''
     

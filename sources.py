@@ -7,87 +7,93 @@ _universal_tags = ['epic', 'funny', 'dank', 'meme', 'dankness', 'win', 'fail', '
 _content_sources = [
     {
         'subreddit': 'gifs',
-        'titles': ['Greatest Gifs of All Time'],
+        'titles': ['Greatest Gifs of All Time', 'The Best Gifs on The Entire Internet'],
         'tags': _universal_tags + ['gif'],
         'text': True
     },
     {
         'subreddit': 'dankmemes',
-        'titles': ['DANKEST MEMES'],
+        'titles': ['DANKEST MEMES', 'BIG FAT FUCKING GREAT MEMES'],
         'tags': _universal_tags + ['spongebob', 'vine'],
         'text': False
     },
     {
         'subreddit': 'anime_irl',
-        'titles': ['BEST ANIME MEMES'],
+        'titles': ['BEST ANIME MOMENTS', 'WHEN THE ANIME IS TOO RELATABLE'],
         'tags': _universal_tags + ['kawaii', 'anime', 'baka', 'neko', 'lewd', 'nippon', 'japan'],
         'text': False
     },
     {
         'subreddit': 'woahdude',
-        'titles': ['INSANE VIDEO, DO NOT WATCH!!!'],
+        'titles': ['INSANE VIDEO, DO NOT WATCH!!!', "YOU WON'T BELIEVE YOUR EYES"],
         'tags': _universal_tags + ['trippy', 'insane', 'crazy'],
         'text': True
     },
     {
         'subreddit': 'funny',
-        'titles': ['If you laugh you MUST like this video!'],
+        'titles': ['If you laugh you MUST like this video!', '99.69% WILL LAUGH AT THIS', "I CAN'T STOP LAUGHING"],
         'tags': _universal_tags + ['halarious', 'lol', 'lmao'],
         'text': True
     },
     {
         'subreddit': 'wtf',
-        'titles': ['WTF DID I JUST WATCH!!!!!'],
+        'titles': ['WTF!!!!!', 'THIS VIDEO IS FR$CKED', 'SOMEONE TELL ME WTF IM LOOKING AT'],
         'tags': _universal_tags + ['wtf', 'disturbing', 'crazy', 'why', 'omg'],
         'text': True
     },
     {
         'subreddit': 'aww',
-        'titles': ['This is so cute OMG!'],
+        'titles': ['This is so cute OMG!', 'Most Adorable Animals of All Time'],
         'tags': _universal_tags + ['cute', 'adorable', 'bunny', 'rabbit', 'cat', 'kitten', 'dog', 'puppy'],
         'text': False
     },
     {
         'subreddit': 'interestingasfuck',
-        'titles': ['THE CRAZIEST SHIT YOU WILL SEE TODAY'],
+        'titles': ['THE CRAZIEST VIDEO YOU WILL SEE EVER', 'SCIENCE CAN NOT EXPLAIN THIS'],
         'tags': _universal_tags + ['trippy', 'insane', 'crazy'],
         'text': True
     },
     {
         'subreddit': 'oddlysatisfying',
-        'titles': ['This is the Most Satisfying Video'],
+        'titles': ['This is the Most Satisfying Video', 'Why is this so satisfying', 'Oddly Satisfying Compilation'],
         'tags': _universal_tags + ['crazy', 'satisfying', 'oddly', 'nice'],
         'text': False
     },
     {
         'subreddit': 'gentlemanboners',
-        'titles': ['The sexiest girls EVER'],
+        'titles': ['The sexiest girls EVER', 'The Hottest Girls on the Internet'],
         'tags': _universal_tags + ['attractive', 'cute', 'sexy', 'sex', 'boner', 'tits', 'dress', 'woman'],
         'text': False
     },
     {
         'subreddit': 'gaming',
-        'titles': ['Greatest Gaming Memes'],
+        'titles': ['Greatest Gaming Memes', 'GAMING FTW', 'Only Gamers Will Find This Funny'],
         'tags': _universal_tags + ['gamergirl', 'overwatch', 'tf2', 'moba', 'league', 'legends', 'gamer', 'fallout'],
         'text': True
     },
     {
         'subreddit': 'wholesomememes',
-        'titles': ['Worlds most wholesome memes'],
+        'titles': ['Worlds most wholesome memes', 'These Memes Are So Wholesome'],
         'tags': _universal_tags + ['happy', 'wholesome', 'heart', 'warming'],
         'text': False
     },
     {
         'subreddit': 'mildlyinteresting',
-        'titles': ['OMG!!'],
+        'titles': ['OMG!!', 'WOAH This is so cool...'],
         'tags': _universal_tags + ['insane', 'crazy', 'interesting', 'cool'],
         'text': True
     },
     {
         'subreddit': 'BetterEveryLoop',
-        'titles': ['Greatest Gifs of All Time'],
+        'titles': ['Greatest Gifs of All Time', 'The Best Video You Will See Today', 'Best Wins and Fails'],
         'tags': _universal_tags + ['insane', 'crazy', 'interesting', 'cool', 'gif', 'video'],
         'text': True
+    },
+    {
+        'subreddit': 'Animemes',
+        'titles': ['BEST ANIME MEMES', 'SUPER DANK ANIME MEMES', 'KAWAII DANKNESS FROM JAPAN'],
+        'tags': _universal_tags + ['kawaii', 'anime', 'baka', 'neko', 'lewd', 'nippon', 'japan'],
+        'text': False
     }
 ]
 
