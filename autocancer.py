@@ -11,6 +11,7 @@ from reddit import subreddit
 print "importing get..."
 from get import get
 from sources import full_day_sources, update_titles
+from time import sleep
 
 
 #AUDIO'S GETTING CUT OFF AT THE END OF THE VIDEO
@@ -38,3 +39,5 @@ for source in full_day_sources():
     print "uploading video..."
     upload(vid, "Song: " + str(song), source.tags)
     update_titles(source.title)
+    print "sleeping for like 20 mins..."
+    sleep(60*20)
